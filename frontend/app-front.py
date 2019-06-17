@@ -1,18 +1,7 @@
-'''
-autor: Lucas de Matos Silva
-email: lucas.matos.silva@icloud.com
-data: 11 de junho de 2019
-'''
 from flask import Flask, render_template
 from lib import DadosAbertos
 from pymongo import MongoClient
 import datetime
-list_dep = DadosAbertos()
-
-print ("BEM VINDO!")
-print (" ")
-print ("AGUARDE, CARREGANDO DADOS...")
-print (" ")
 
 app = Flask(__name__)
 
@@ -38,7 +27,6 @@ def deputados():
 @app.route("/gastos/<id>")
 def deputado(id):
    obj    = DadosAbertos()
-   info   = obj.deputado_id(id)
    gastos = obj.deputado_despesas(id)
    valorGasto = 0
    valores = {}
@@ -60,7 +48,6 @@ def deputado(id):
 @app.route("/orgaos/<id>")
 def eventos(id):
    obj    = DadosAbertos()
-   info   = obj.deputado_id(id)
    orgaos = obj.deputado_orgaos(id)
 
    return render_template('orgaos.html', listas=orgaos)
