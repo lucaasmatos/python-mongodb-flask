@@ -1,7 +1,6 @@
 from flask import Flask, render_template
-from lib import DadosAbertos
 from pymongo import MongoClient
-import datetime
+from lib import DadosAbertos
 
 app = Flask(__name__)
 
@@ -21,7 +20,6 @@ def deputados():
    list_dep = []
    for dep in table.find():
        list_dep.append(dep)
-   
    return render_template('lista.html', listas=list_dep)
 
 @app.route("/gastos/<id>")
@@ -53,4 +51,4 @@ def eventos(id):
    return render_template('orgaos.html', listas=orgaos)
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', debug=True, port=8080)
+    app.run(host='0.0.0.0', debug=True, port=8080)

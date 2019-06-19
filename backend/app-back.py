@@ -31,13 +31,12 @@ def coleta():
    list_dep = obj.deputados()
 
    for dep in list_dep:
-       	   
-	   info = {
-             'id'    : dep['id'],
+       info = {
+             '_id'    : dep['id'],
              'Nome'   : dep['nome'],
              'Partido': dep['siglaPartido'],
              'Foto'   : dep['urlFoto'],
-			 'Uf'	  : dep['siglaUf']
+			 'Estado' : dep['siglaUf']
        }
        list_deputados.append(info)
 
